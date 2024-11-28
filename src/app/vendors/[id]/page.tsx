@@ -2,19 +2,9 @@ import MarkkoSDK from 'markko-nextjs-sdk'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import markkoConfig from '@/config/markko'
 
-const config = {
-  version: process.env.MPE_VERSION!,
-  origin: process.env.MPE_ORIGIN!,
-  apiBasePath: process.env.MPE_API_BASE_PATH!,
-  passwordKey: process.env.MPE_PASSWORD_KEY!,
-  passwordSecret: process.env.MPE_PASSWORD_SECRET!,
-  clientCredentialKey: process.env.MPE_CLIENT_CREDENTIAL_KEY!,
-  clientCredentialSecret: process.env.MPE_CLIENT_CREDENTIAL_SECRET!,
-  isDevelopment: process.env.NODE_ENV === 'development',
-}
-
-const sdk = new MarkkoSDK(config)
+const sdk = new MarkkoSDK(markkoConfig)
 
 export default async function VendorPage({
   params,
