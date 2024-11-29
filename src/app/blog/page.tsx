@@ -20,7 +20,7 @@ export default function BlogPage() {
       <div className="w-full grid sm:grid-cols-3 gap-4">
         {blogs.data.map((blog: any, index: number) => (
           <Link
-            href={`/vendors/${blogs.slug}`}
+            href={`/blog/${blog.slug}`}
             key={index}
             className="overflow-hidden col-span-1 flex flex-col"
           >
