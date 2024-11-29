@@ -1,6 +1,7 @@
 import MarkkoSDK from 'markko-nextjs-sdk'
 import Link from 'next/link'
 import markkoConfig from '@/config/markko'
+import { Code } from '@nextui-org/react'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
@@ -17,27 +18,21 @@ const vendors = await sdk.vendors.list({
 
 export default function VendorsPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24 gap-8 font-[family-name:var(--font-geist-sans)]">
-      <Link href="/" className="hover:underline hover:underline-offset-4">
-        ← Back to Home
-      </Link>
+    <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-4xl font-bold">Vendors</h1>
-      <div className="w-full grid grid-cols-2 gap-4">
+      <div className="w-full grid sm:grid-cols-3 gap-4">
         {vendors.data.map((vendor: any, index: number) => (
           <Link
             href={`/vendors/${vendor.id}`}
             key={index}
-            className="flex p-4 bg-neutral-700 rounded-lg"
+            className="overflow-hidden col-span-1 flex flex-col p-2"
           >
-            <pre className="whitespace-pre-wrap overflow-x-auto">
+            <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
               {JSON.stringify(vendor, null, 2)}
-            </pre>
+            </Code>
           </Link>
         ))}
       </div>
-      <Link href="/" className="hover:underline hover:underline-offset-4">
-        ← Back to Home
-      </Link>
     </main>
   )
 }

@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <header className="absolute top-0 right-0 flex justify-end items-center p-6">
+          <header className="absolute top-0 right-0 flex justify-end items-center p-6 font-[family-name:var(--font-geist-sans)]">
             <Nav />
           </header>
           {children}

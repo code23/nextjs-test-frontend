@@ -13,11 +13,13 @@ export function Nav() {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="bordered">Menu</Button>
+        <Button radius="full" color="secondary">
+          Menu
+        </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Dynamic Actions" items={navItems}>
         {(item) => (
-          <DropdownItem key={item.key} href={item.href}>
+          <DropdownItem key={item.key} href={item.href} className="text-black">
             {item.label}
           </DropdownItem>
         )}

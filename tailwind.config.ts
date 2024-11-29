@@ -13,12 +13,10 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        primary: '#4338ca',
+        secondary: '#34d399',
       },
     },
   },
-  plugins: [
-    nextui({
-      defaultTheme: 'dark',
-    }),
-  ],
+  plugins: [nextui({})],
 } satisfies Config

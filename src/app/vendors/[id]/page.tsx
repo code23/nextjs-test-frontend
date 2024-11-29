@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import markkoConfig from '@/config/markko'
+import { Code } from '@nextui-org/react'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
@@ -15,7 +16,7 @@ export default async function VendorPage({
     const vendor = await sdk.vendors.get(parseInt((await params).id))
 
     return (
-      <main className="flex min-h-screen flex-col items-center p-24 gap-8 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
         <h1 className="text-4xl font-bold">Vendor: {vendor.data.store_name}</h1>
         <div className="w-full h-96 relative">
           <Image
@@ -25,11 +26,9 @@ export default async function VendorPage({
             className="rounded-lg object-cover object-top"
           />
         </div>
-        <div className="w-full max-w-4xl space-y-4 bg-neutral-700 p-4 rounded-lg">
-          <pre className="whitespace-pre-wrap overflow-x-auto">
-            {JSON.stringify(vendor, null, 2)}
-          </pre>
-        </div>
+        <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
+          {JSON.stringify(vendor, null, 2)}
+        </Code>
         <Link
           href="/vendors"
           className="hover:underline hover:underline-offset-4"
