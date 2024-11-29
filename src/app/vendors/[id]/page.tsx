@@ -18,7 +18,7 @@ export default async function VendorPage({
     return (
       <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
         <h1 className="text-4xl font-bold">Vendor: {vendor.data.store_name}</h1>
-        <div className="w-full h-96 relative">
+        <div className="w-full h-80 relative">
           <Image
             src={vendor.data.banner.image_paths.original}
             alt={vendor.data.store_name}
