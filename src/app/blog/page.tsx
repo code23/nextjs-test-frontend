@@ -8,8 +8,6 @@ const sdk = new MarkkoSDK(markkoConfig)
 const blogs = await sdk.blogs.listPosts({
   sort: 'published_at,desc',
   with: 'images,blog_categories',
-  paginate: 10,
-  page: 1,
 })
 
 const categories = await sdk.blogs.listCategories()
