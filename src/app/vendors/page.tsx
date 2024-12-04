@@ -1,4 +1,4 @@
-import MarkkoSDK from 'markko-nextjs-sdk'
+import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import Link from 'next/link'
 import markkoConfig from '@/config/markko'
 import { Code } from '@nextui-org/react'

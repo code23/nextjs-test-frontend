@@ -1,4 +1,4 @@
-import MarkkoSDK from 'markko-nextjs-sdk'
+import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'

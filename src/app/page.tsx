@@ -19,7 +19,7 @@ export default function Home() {
           <li className="mb-2">
             Get started with{' '}
             <Snippet size="sm" className="pl-3 text-white">
-              npm install markko-nextjs-sdk
+              npm install @meetmarkko/markko-nextjs-sdk
             </Snippet>
           </li>
           <li>Read the docs and start developing instantly.</li>

@@ -1,4 +1,4 @@
-import MarkkoSDK from 'markko-nextjs-sdk'
+import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -22,7 +22,7 @@ export default async function PostPage({
         <h1 className="text-4xl font-bold">Post: {post.data.title}</h1>
         <div className="w-full h-80 relative">
           <Image
-            src={post.data.image[0].image_paths.original}
+            src={post.data.image[0]?.image_paths.original}
             alt={post.data.title}
             fill={true}
             className="rounded-lg object-cover object-top"
