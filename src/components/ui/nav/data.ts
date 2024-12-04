@@ -5,13 +5,18 @@ export const navItems = [
     href: '/',
   },
   {
-    key: 'vendors',
-    label: 'Vendors',
-    href: '/vendors',
+    key: 'address',
+    label: 'Address',
+    href: '/address',
   },
   {
     key: 'blog',
     label: 'Blog',
     href: '/blog',
+  },
+  {
+    key: 'vendors',
+    label: 'Vendors',
+    href: '/vendors',
   },
 ]
