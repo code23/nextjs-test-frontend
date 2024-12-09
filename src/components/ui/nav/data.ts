@@ -20,11 +20,6 @@ export const navItems = [
     href: '/vendors',
   },
   {
-    key: 'donation',
-    label: 'donation',
-    href: '/donation',
-  },
-  {
     key: 'charitiesList',
     label: 'charitiesList',
     href: '/charitiesList',
