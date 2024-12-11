@@ -24,4 +24,9 @@ export const navItems = [
     label: 'Charities',
     href: '/charities',
   },
+  {
+    key: 'Tags',
+    label: 'Tags',
+    href: '/tags',
+  },
 ]
