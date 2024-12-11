@@ -15,6 +15,11 @@ export const navItems = [
     href: '/blog',
   },
   {
+    key: 'Specifications',
+    label: 'Specifications',
+    href: '/specifications',
+  },
+  {
     key: 'vendors',
     label: 'Vendors',
     href: '/vendors',
