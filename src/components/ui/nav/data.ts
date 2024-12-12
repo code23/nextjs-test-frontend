@@ -19,4 +19,9 @@ export const navItems = [
     label: 'Vendors',
     href: '/vendors',
   },
+  {
+    key: 'shipping',
+    label: 'shipping',
+    href: '/shipping/zone',
+  },
 ]
