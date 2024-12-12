@@ -19,4 +19,9 @@ export const navItems = [
     label: 'Vendors',
     href: '/vendors',
   },
+  {
+    key: 'setting',
+    label: 'setting',
+    href: '/setting',
+  },
 ]
