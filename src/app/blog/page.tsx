@@ -1,18 +1,23 @@
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import Link from 'next/link'
 import markkoConfig from '@/config/markko'
-import { Code } from '@nextui-org/react'
+import { Code } from '@heroui/react'
+import { getSession } from '@/app/actions'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
-const blogs = await sdk.blogs.listPosts({
-  sort: 'published_at,desc',
-  with: 'images,blog_categories',
-})
+export default async function BlogPage() {
+  const session = await getSession()
+  const oauth = session.oauth
+  const blogs = await sdk.blogs.listPosts(
+    {
+      sort: 'published_at,desc',
+      with: 'images,blog_categories',
+    },
+    oauth
+  )
+  const categories = await sdk.blogs.listCategories({}, oauth)
 
-const categories = await sdk.blogs.listCategories()
-
-export default function BlogPage() {
   return (
     <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-4xl font-bold">Blog</h1>

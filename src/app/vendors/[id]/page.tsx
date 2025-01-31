@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import markkoConfig from '@/config/markko'
-import { Code } from '@nextui-org/react'
+import { Code } from '@heroui/react'
+import { getSession } from '@/app/actions'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
@@ -12,8 +13,11 @@ export default async function VendorPage({
 }: {
   params: Promise<{ id: string }>
 }) {
+  const session = await getSession()
+  const oauth = session.oauth
+
   try {
-    const vendor = await sdk.vendors.get(parseInt((await params).id))
+    const vendor = await sdk.vendors.get(parseInt((await params).id), oauth)
 
     return (
       <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
