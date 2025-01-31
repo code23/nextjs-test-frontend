@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Button, Input } from '@nextui-org/react'
+import { Button, Input } from '@heroui/react'
 
 interface Address {
   summaryline: string
@@ -48,7 +48,7 @@ export default function AddressPage() {
         value={postcode}
         onChange={handlePostcodeChange}
       />
-      <Button radius="full" color="secondary" onClick={handleLookup}>
+      <Button radius="full" color="secondary" onPress={handleLookup}>
         Lookup
       </Button>
       <ul className="w-full max-w-2xl space-y-2">

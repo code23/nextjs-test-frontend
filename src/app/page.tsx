@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Button, Snippet } from '@nextui-org/react'
+import { Button, Snippet } from '@heroui/react'
 
 export default function Home() {
   return (
@@ -30,7 +30,7 @@ export default function Home() {
             as="a"
             radius="full"
             className="text-primary text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://www.npmjs.com/package/markko-nextjs-sdk"
+            href="https://www.npmjs.com/package/@meetmarkko/markko-nextjs-sdk"
             target="_blank"
             rel="noopener noreferrer"
           >
