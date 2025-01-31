@@ -5,9 +5,13 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  DropdownSection,
   Button,
-} from '@nextui-org/react'
+} from '@heroui/react'
 import { navItems } from './data'
+
+const nonAuthItems = navItems.filter((item) => !item.auth)
+const authItems = navItems.filter((item) => item.auth)
 
 export function Nav() {
   return (
@@ -17,12 +21,29 @@ export function Nav() {
           Menu
         </Button>
       </DropdownTrigger>
-      <DropdownMenu aria-label="Dynamic Actions" items={navItems}>
-        {(item) => (
-          <DropdownItem key={item.key} href={item.href} className="text-black">
-            {item.label}
-          </DropdownItem>
-        )}
+      <DropdownMenu aria-label="Dynamic Actions">
+        <DropdownSection showDivider title="Without auth" items={nonAuthItems}>
+          {(item) => (
+            <DropdownItem
+              key={item.key}
+              href={item.href}
+              className="text-black"
+            >
+              {item.label}
+            </DropdownItem>
+          )}
+        </DropdownSection>
+        <DropdownSection title="With auth" items={authItems}>
+          {(item) => (
+            <DropdownItem
+              key={item.key}
+              href={item.href}
+              className="text-black"
+            >
+              {item.label}
+            </DropdownItem>
+          )}
+        </DropdownSection>
       </DropdownMenu>
     </Dropdown>
   )
