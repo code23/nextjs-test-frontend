@@ -24,6 +24,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'categories',
+    label: 'Categories',
+    href: '/categories',
+    auth: false,
+  },
+  {
     key: 'vendors',
     label: 'Vendors',
     href: '/vendors',
