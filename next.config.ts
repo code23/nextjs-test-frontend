@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/partydip.markko.me/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'code23-stag-marketplace-public.s3.eu-west-2.amazonaws.com',
+        port: '',
+        pathname: '/designsnitch.markko.me/**',
+      },
     ],
   },
 }
