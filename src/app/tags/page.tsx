@@ -15,12 +15,14 @@ export default async function TagsPage() {
       <h1 className="text-4xl font-bold">Tags</h1>
       <div className="w-full grid sm:grid-cols-3 gap-4">
         {tags.data.map((tag: any, index: number) => (
-          <Code
-            className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900"
+          <div
             key={index}
+            className="overflow-hidden col-span-1 flex flex-col p-2"
           >
-            {JSON.stringify(tag, null, 2)}
-          </Code>
+            <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
+              {JSON.stringify(tag, null, 2)}
+            </Code>
+          </div>
         ))}
       </div>
     </main>
