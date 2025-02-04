@@ -36,6 +36,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'reviews',
+    label: 'Reviews',
+    href: '/reviews',
+    auth: false,
+  },
+  {
     key: 'tags',
     label: 'Tags',
     href: '/tags',
