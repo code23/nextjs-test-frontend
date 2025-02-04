@@ -1,4 +1,4 @@
-import { getSession, logout } from '@/src/app/actions'
+import { getSession, logout } from '@/app/actions'
 import { Button } from '@heroui/react'
 import { redirect, RedirectType } from 'next/navigation'
 

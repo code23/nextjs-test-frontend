@@ -1,6 +1,6 @@
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import { getSession } from '../actions'
-import markkoConfig from '@/src/config/markko'
+import markkoConfig from '@/config/markko'
 import Link from 'next/link'
 import { Code } from '@heroui/react'
 

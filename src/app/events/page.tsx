@@ -2,7 +2,7 @@ import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import Link from 'next/link'
 import { Code } from '@heroui/react'
 import { getSession } from '../actions'
-import markkoConfig from '@/src/config/markko'
+import markkoConfig from '@/config/markko'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
@@ -11,27 +11,27 @@ export default async function EventsPage() {
   const oauth = session.oauth
   const upcomingEvents = session?.isLoggedIn
     ? await sdk.events.list(
-        {
-          sort: 'start_date',
-          with: 'categories,occasion,quotes,address',
-          paginate: 10,
-          page: 1,
-          event_status: 'upcoming',
-        },
-        oauth
-      )
+      {
+        sort: 'start_date',
+        with: 'categories,occasion,quotes,address',
+        paginate: 10,
+        page: 1,
+        event_status: 'upcoming',
+      },
+      oauth
+    )
     : null
   const pastEvents = session?.isLoggedIn
     ? await sdk.events.list(
-        {
-          sort: 'start_date',
-          with: 'categories,occasion,quotes,address',
-          paginate: 10,
-          page: 1,
-          event_status: 'past',
-        },
-        oauth
-      )
+      {
+        sort: 'start_date',
+        with: 'categories,occasion,quotes,address',
+        paginate: 10,
+        page: 1,
+        event_status: 'past',
+      },
+      oauth
+    )
     : null
 
   return (

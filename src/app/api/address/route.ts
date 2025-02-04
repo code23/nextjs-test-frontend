@@ -1,4 +1,4 @@
-import markkoConfig from '@/src/config/markko'
+import markkoConfig from '@/config/markko'
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import { NextResponse } from 'next/server'
 

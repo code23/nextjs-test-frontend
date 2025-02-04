@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Code } from '@heroui/react'
-import markkoConfig from '@/src/config/markko'
+import markkoConfig from '@/config/markko'
 import { getSession } from '../../actions'
 
 const sdk = new MarkkoSDK(markkoConfig)

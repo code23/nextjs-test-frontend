@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Code } from '@heroui/react'
 import { getSession } from '../../actions'
-import markkoConfig from '@/src/config/markko'
+import markkoConfig from '@/config/markko'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
