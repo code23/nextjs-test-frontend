@@ -30,6 +30,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'products',
+    label: 'Products',
+    href: '/products',
+    auth: false,
+  },
+  {
     key: 'tags',
     label: 'Tags',
     href: '/tags',
@@ -46,11 +52,5 @@ export const navItems = [
     label: 'Events',
     href: '/events',
     auth: true,
-  },
-  {
-    key: 'products',
-    label: 'Products',
-    href: '/products',
-    auth: false,
   },
 ]
