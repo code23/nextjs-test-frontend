@@ -1,5 +1,5 @@
-import markkoConfig from '@/config/markko'
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
+import markkoConfig from '@/config/markko'
 import { NextResponse } from 'next/server'
 
 const sdk = new MarkkoSDK(markkoConfig)

@@ -2,11 +2,11 @@
 
 import { revalidatePath } from 'next/cache'
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
+import markkoConfig from '@/config/markko'
 import { getIronSession } from 'iron-session'
 import { cookies } from 'next/headers'
+import { sessionOptions, SessionData } from '@/lib/session'
 import { z } from 'zod'
-import markkoConfig from '../config/markko'
-import { SessionData, sessionOptions } from '../lib/session'
 
 const sdk = new MarkkoSDK(markkoConfig)
 

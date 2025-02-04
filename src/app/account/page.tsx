@@ -1,6 +1,6 @@
-import LogoutForm from '@/components/forms/logout-form'
-import { getSession } from '../actions'
 import LoginForm from '@/components/forms/login-form'
+import LogoutForm from '@/components/forms/logout-form'
+import { getSession } from '@/app/actions'
 
 export default async function AccountPage() {
   const session = await getSession()

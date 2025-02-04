@@ -1,7 +1,7 @@
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
-import { Code } from '@heroui/react'
-import { getSession } from '../actions'
 import markkoConfig from '@/config/markko'
+import { Code } from '@heroui/react'
+import { getSession } from '@/app/actions'
 
 const sdk = new MarkkoSDK(markkoConfig)
 

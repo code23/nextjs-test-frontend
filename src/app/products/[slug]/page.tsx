@@ -15,7 +15,10 @@ export default async function ProductPage({ params,
 }) {
   const session = await getSession()
   const oauth = session.oauth
-  const product = await sdk.products.getBySlug((await params).slug, { with: 'images', }, oauth)
+  const product = await sdk.products.getBySlug((await params).slug, {
+    condensed: '0',
+    with: 'options.values,categories,cross_sells.categories,cross_sells.images,cross_sells.vendor,cross_sells.model_tags,up_sells.categories,up_sells.images,up_sells.vendor,up_sells.model_tags,images,model_tags,specifications'
+  }, oauth)
   return (
     <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-4xl font-bold">Product: {product.data.name}</h1>
