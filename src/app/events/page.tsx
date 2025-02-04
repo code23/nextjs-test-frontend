@@ -11,27 +11,27 @@ export default async function EventsPage() {
   const oauth = session.oauth
   const upcomingEvents = session?.isLoggedIn
     ? await sdk.events.list(
-        {
-          sort: 'start_date',
-          with: 'categories,occasion,quotes,address',
-          paginate: 10,
-          page: 1,
-          event_status: 'upcoming',
-        },
-        oauth
-      )
+      {
+        sort: 'start_date',
+        with: 'categories,occasion,quotes,address',
+        paginate: 10,
+        page: 1,
+        event_status: 'upcoming',
+      },
+      oauth
+    )
     : null
   const pastEvents = session?.isLoggedIn
     ? await sdk.events.list(
-        {
-          sort: 'start_date',
-          with: 'categories,occasion,quotes,address',
-          paginate: 10,
-          page: 1,
-          event_status: 'past',
-        },
-        oauth
-      )
+      {
+        sort: 'start_date',
+        with: 'categories,occasion,quotes,address',
+        paginate: 10,
+        page: 1,
+        event_status: 'past',
+      },
+      oauth
+    )
     : null
 
   return (

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import markkoConfig from '@/config/markko'
 import { Code } from '@heroui/react'
 import { getSession } from '@/app/actions'
-
 const sdk = new MarkkoSDK(markkoConfig)
 
 export default async function EventPage({
@@ -17,12 +16,12 @@ export default async function EventPage({
     const oauth = session.oauth
     const event = session?.isLoggedIn
       ? await sdk.events.get(
-          parseInt((await params).id),
-          {
-            with: 'categories,occasion,quotes,address',
-          },
-          oauth
-        )
+        parseInt((await params).id),
+        {
+          with: 'categories,occasion,quotes,address',
+        },
+        oauth
+      )
       : null
 
     return (
