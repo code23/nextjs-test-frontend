@@ -1,5 +1,5 @@
+import { getSession, logout } from '@/src/app/actions'
 import { Button } from '@heroui/react'
-import { getSession, logout } from '@/app/actions'
 import { redirect, RedirectType } from 'next/navigation'
 
 export default async function LogoutForm() {

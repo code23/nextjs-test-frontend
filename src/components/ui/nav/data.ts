@@ -47,4 +47,10 @@ export const navItems = [
     href: '/events',
     auth: true,
   },
+  {
+    key: 'products',
+    label: 'Products',
+    href: '/products',
+    auth: false,
+  },
 ]

@@ -2,7 +2,7 @@
 
 import { useActionState } from 'react'
 import { Input, Button } from '@heroui/react'
-import { login } from '@/app/actions'
+import { login } from '@/src/app/actions'
 
 export default function LoginForm() {
   const initialState = {
