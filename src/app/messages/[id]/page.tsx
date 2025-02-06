@@ -18,7 +18,7 @@ export default async function MessagePage({
     const session = await getSession()
     const oauth = session.oauth
     const channel = session?.isLoggedIn
-      ? await sdk.messages.getChannel((await params).id, { paginate: 5 }, oauth)
+      ? await sdk.messages.getChannel((await params).id, { paginate: 3 }, oauth)
       : null
 
     return (
@@ -27,28 +27,45 @@ export default async function MessagePage({
           <>
             <div className="flex flex-col gap-6 w-full justify-center items-center">
               <h1 className="text-4xl font-bold">
-                chanel: {channel.data.channel_name}
+                Channel: {channel.data.channel_name}
               </h1>
+
+              <h2 className="text-3xl font-bold ">Channel details</h2>
               <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
                 {JSON.stringify(channel, null, 2)}
               </Code>
-              <Link
-                href="/messages"
-                className="hover:underline hover:underline-offset-4"
-              >
-                ← Back to allchanels
-              </Link>
-            </div>
-            <div className="flex flex-col gap-6 w-full justify-center items-center">
-              <h1 className="text-4xl font-bold ">Send message</h1>
+
+              <h2 className="text-3xl font-bold ">Last 3 messages</h2>
+              <div className="w-full grid sm:grid-cols-3 gap-4">
+                {channel.data.messages.length > 0 &&
+                  channel.data.messages.map((message: any, index: number) => (
+                    <>
+                      <Code
+                        className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900"
+                        key={index}
+                      >
+                        {JSON.stringify(message, null, 2)}
+                      </Code>
+                    </>
+                  ))}
+              </div>
+
+              <h2 className="text-3xl font-bold ">Send message</h2>
               <Sendmessage
                 channelName={channel.data.channel_name}
                 recipient_id="f0067444-4f96-432c-b126-7fa551de52eb"
               />
+
+              <Link
+                href="/messages"
+                className="hover:underline hover:underline-offset-4"
+              >
+                ← Back to all channels
+              </Link>
             </div>
             {/* <div className="flex flex-col gap-6 w-full justify-center items-center">
-                            <LoadMoreMessages messages={channel.data.messages} />
-                        </div> */}
+                <LoadMoreMessages messages={channel.data.messages} />
+            </div> */}
           </>
         ) : (
           <p>
@@ -56,7 +73,7 @@ export default async function MessagePage({
             <Link className="underline" href="/account">
               login
             </Link>{' '}
-            to view this event
+            to view this channel
           </p>
         )}
       </main>
