@@ -20,10 +20,15 @@ export default async function MessagePage({
     const channel = session?.isLoggedIn
       ? await sdk.messages.getChannel((await params).id, { paginate: 3 }, oauth)
       : null
+    const recipient_id = channel
+      ? channel.data.participants.find(
+          (participant: any) => participant.user.id !== session.user.id
+        )?.user.id
+      : null
 
     return (
       <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-[80px] font-[family-name:var(--font-geist-sans)]">
-        {session?.isLoggedIn ? (
+        {session?.isLoggedIn && channel ? (
           <>
             <div className="flex flex-col gap-6 w-full justify-center items-center">
               <h1 className="text-4xl font-bold">
@@ -53,7 +58,7 @@ export default async function MessagePage({
               <h2 className="text-3xl font-bold ">Send message</h2>
               <Sendmessage
                 channelName={channel.data.channel_name}
-                recipient_id="f0067444-4f96-432c-b126-7fa551de52eb"
+                recipient_id={recipient_id}
               />
 
               <Link
