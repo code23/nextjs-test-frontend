@@ -1,5 +1,5 @@
 import { getSession } from '@/app/actions'
-import Sendmessage from '@/components/forms/Sendmessage'
+import SendMessageForm from '@/components/forms/send-message-form'
 // import LoadMoreMessages from "@/components/LoadMoreMessages"
 import markkoConfig from '@/config/markko'
 import { Code } from '@heroui/react'
@@ -56,7 +56,7 @@ export default async function MessagePage({
               </div>
 
               <h2 className="text-3xl font-bold ">Send message</h2>
-              <Sendmessage
+              <SendMessageForm
                 channelName={channel.data.channel_name}
                 recipient_id={recipient_id}
               />
