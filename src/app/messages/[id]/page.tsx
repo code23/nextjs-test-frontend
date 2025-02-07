@@ -5,6 +5,7 @@ import { Code } from '@heroui/react'
 import MarkkoSDK from '@meetmarkko/markko-nextjs-sdk'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import LoadMoreMessages from '@/components/LoadMoreMessages'
 
 const sdk = new MarkkoSDK(markkoConfig)
 
@@ -39,7 +40,7 @@ export default async function MessagePage({
                 {JSON.stringify(channel, null, 2)}
               </Code>
 
-              <h2 className="text-3xl font-bold ">
+              <h2 className="text-3xl font-bold">
                 Last messages (paginated to 3)
               </h2>
               <div className="w-full grid sm:grid-cols-3 gap-4">
@@ -54,6 +55,14 @@ export default async function MessagePage({
                     </>
                   ))}
               </div>
+
+              <h2 className="text-3xl font-bold">
+                Last messages (paginated to 3) - with load more
+              </h2>
+              <LoadMoreMessages
+                initialMessages={channel.data.messages}
+                channelId={channel.data.id}
+              />
 
               <h2 className="text-3xl font-bold ">Send message</h2>
               <SendMessageForm
