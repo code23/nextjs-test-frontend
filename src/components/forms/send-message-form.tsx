@@ -45,7 +45,7 @@ export default function SendMessageForm({
   }
 
   return (
-    <div className="flex gap-5 w-[50%] items-center">
+    <div className="flex w-full gap-5 items-center">
       <Input
         label="Message"
         placeholder="Write a Message"
@@ -56,7 +56,8 @@ export default function SendMessageForm({
       />
       <Button
         type="button"
-        className="w-[30%] flex items-center"
+        radius="full"
+        color="secondary"
         onPress={handleSendMessage}
       >
         Send Message
