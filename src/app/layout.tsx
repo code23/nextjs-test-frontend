@@ -35,7 +35,7 @@ export default async function RootLayout({
       >
         <Providers>
           <header className="absolute top-0 right-0 flex justify-end items-center gap-4 p-6 font-[family-name:var(--font-geist-sans)]">
-            {session.isLoggedIn && <p>{session.email}</p>}
+            {session.isLoggedIn && <p>{session.user.email}</p>}
             <Nav />
           </header>
           {children}

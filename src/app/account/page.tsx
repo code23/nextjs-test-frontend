@@ -11,7 +11,7 @@ export default async function AccountPage() {
       {!session.isLoggedIn && <LoginForm />}
       {session.isLoggedIn && (
         <>
-          <p className="text-2xl font-bold">Email: {session.email}</p>
+          <p className="text-2xl font-bold">Email: {session.user.email}</p>
           <LogoutForm />
         </>
       )}
