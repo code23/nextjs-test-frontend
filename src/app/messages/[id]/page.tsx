@@ -45,12 +45,11 @@ export default async function MessagePage({
                 {channel.data.messages.length > 0 &&
                   channel.data.messages.map((message: any, index: number) => (
                     <>
-                      <Code
-                        className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900"
-                        key={index}
-                      >
-                        {JSON.stringify(message, null, 2)}
-                      </Code>
+                      <div className="w-full" key={index}>
+                        <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
+                          {JSON.stringify(message, null, 2)}
+                        </Code>
+                      </div>
                     </>
                   ))}
               </div>

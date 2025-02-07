@@ -3,7 +3,7 @@
 import { Button, Input } from '@heroui/react'
 import { useState } from 'react'
 
-interface SendmessageProps {
+interface SendMessageProps {
   channelName: string
   recipient_id: string
 }
@@ -11,11 +11,13 @@ interface SendmessageProps {
 export default function SendMessageForm({
   channelName,
   recipient_id,
-}: SendmessageProps) {
+}: SendMessageProps) {
   const [message, setMessage] = useState('')
+
   const handleMessageChange = (event: any) => {
     setMessage(event.target.value)
   }
+
   const handleSendMessage = async () => {
     try {
       const response = await fetch('/api/message', {
@@ -26,17 +28,19 @@ export default function SendMessageForm({
         body: JSON.stringify({
           message: {
             body: message,
+            files: null,
           },
           is_update: false,
           channel_name: channelName,
           recipient_id: recipient_id,
         }),
       })
-      const results = await response.json()
-      if (!response.ok || results.error) throw new Error(results)
+
+      const data = await response.json()
+      if (!response.ok || data.error) throw new Error(data.error)
       setMessage('')
     } catch (error) {
-      console.error('Error fetching addresses:', error)
+      console.error('Error sending message:', error)
     }
   }
 
@@ -47,6 +51,7 @@ export default function SendMessageForm({
         placeholder="Write a Message"
         name="message"
         type="text"
+        value={message}
         onChange={handleMessageChange}
       />
       <Button

@@ -7,17 +7,18 @@ const sdk = new MarkkoSDK(markkoConfig)
 
 export async function POST(request: Request) {
   try {
-    const { message, channel_name } = await request.json()
+    const { message, is_update, channel_name, recipient_id } =
+      await request.json()
+    const params = {
+      message,
+      is_update,
+      channel_name,
+      recipient_id,
+    }
     const session = await getSession()
-    const oauth = session.oauth
-    const results = await sdk.messages.sendMessage(
-      {
-        message,
-        channel_name,
-        recipient_id: 'eb99f151-5bf3-454d-8a31-8b36d6dcd335',
-      },
-      oauth
-    )
+    const oauth = session?.oauth
+    const results = await sdk.messages.sendMessage(params, oauth)
+
     return NextResponse.json(results)
   } catch (error) {
     console.error('Error sending message:', error)
