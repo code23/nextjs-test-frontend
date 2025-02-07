@@ -14,7 +14,10 @@ export default async function AttributesPage() {
       <h1 className="text-4xl font-bold">Attributes</h1>
       <div className="w-full grid sm:grid-cols-3 gap-4">
         {attributes.data.map((attribute: any, index: number) => (
-          <Code className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900">
+          <Code
+            className="w-full whitespace-pre-wrap overflow-scroll h-48 bg-neutral-100 text-neutral-900"
+            key={index}
+          >
             {JSON.stringify(attribute, null, 2)}
           </Code>
         ))}
