@@ -1,9 +1,11 @@
 'use client'
 
 import { Button, Checkbox, Input } from '@heroui/react'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 export default function SignupForm() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -95,7 +97,13 @@ export default function SignupForm() {
         },
         body: JSON.stringify(signupData),
       })
-      console.log('login successfully', response)
+      if (!response.ok) {
+        throw new Error('Signup failed')
+      } else {
+        router.refresh()
+        router.push('/signup')
+        console.log('Signup success')
+      }
     } catch (error) {
       setMessage('An error occurred during signup')
       console.error('Signup error:', error)
@@ -106,8 +114,8 @@ export default function SignupForm() {
     <form onSubmit={handleSubmit} className="max-w-[700px] w-full">
       <div className="flex flex-col items-center w-full gap-4">
         <div className="flex flex-col items-start w-full">
-          <label>First Name</label>
           <Input
+            label="First Name"
             placeholder="First Name"
             name="firstName"
             type="text"
@@ -116,8 +124,8 @@ export default function SignupForm() {
           />
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>last Name</label>
           <Input
+            label="Last Name"
             placeholder="Last Name"
             name="lastName"
             type="text"
@@ -126,8 +134,8 @@ export default function SignupForm() {
           />
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>Email Address</label>
           <Input
+            label="Email Address"
             placeholder="Email Address"
             name="email"
             type="email"
@@ -136,8 +144,8 @@ export default function SignupForm() {
           />
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>Confirm Email Address</label>
           <Input
+            label="Confirm Email Address"
             placeholder="Confirm Email Address"
             name="confirmEmail"
             type="email"
@@ -146,8 +154,8 @@ export default function SignupForm() {
           />
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>Telephone Number</label>
           <Input
+            label="Telephone Number"
             placeholder="Telephone Number"
             name="telephone"
             type="tel"
@@ -156,8 +164,8 @@ export default function SignupForm() {
           />
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>Password</label>
           <Input
+            label="Password"
             placeholder="Password"
             name="password"
             type="password"
@@ -171,8 +179,8 @@ export default function SignupForm() {
           </div>
         </div>
         <div className="flex flex-col items-start w-full">
-          <label>Confirm Password</label>
           <Input
+            label="Confirm Password"
             placeholder="Confirm Password"
             name="confirmPassword"
             type="password"
@@ -183,15 +191,7 @@ export default function SignupForm() {
         <div className="flex flex-col w-full items-start">
           <div className="flex gap-2">
             <Checkbox
-              name="terms"
-              checked={formData.terms}
-              onChange={handleToggleChange}
-            />
-            I agree to the storage and handling of my data as per the Privacy
-            Policy.
-          </div>
-          <div className="flex gap-2">
-            <Checkbox
+              color="secondary"
               name="terms"
               checked={formData.terms}
               onChange={handleToggleChange}
