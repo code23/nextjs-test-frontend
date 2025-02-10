@@ -9,7 +9,9 @@ export interface SessionData {
     scope: string
   }
   isLoggedIn: boolean
-  email: string
+  user: {
+    [key: string]: any
+  }
 }
 
 export const sessionOptions: SessionOptions = {

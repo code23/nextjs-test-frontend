@@ -48,6 +48,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'signup',
+    label: 'Signup',
+    href: '/signup',
+    auth: false,
+  },
+  {
     key: 'tags',
     label: 'Tags',
     href: '/tags',
@@ -63,6 +69,12 @@ export const navItems = [
     key: 'events',
     label: 'Events',
     href: '/events',
+    auth: true,
+  },
+  {
+    key: 'messages',
+    label: 'Messages',
+    href: '/messages',
     auth: true,
   },
 ]

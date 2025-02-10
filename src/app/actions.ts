@@ -18,7 +18,7 @@ export async function getSession() {
 
   if (!session.isLoggedIn) {
     session.isLoggedIn = false
-    session.email = ''
+    session.user = {}
   }
 
   return session
@@ -69,7 +69,13 @@ export async function login(prevState: any, formData: FormData) {
     const session = await getSession()
     session.oauth = data
     session.isLoggedIn = true
-    session.email = parsedData.email
+
+    // get the user
+    const user = await sdk.users.get(session.oauth)
+    delete user.data.team
+    delete user.data.profile
+    delete user.data.role
+    session.user = user.data
     await session.save()
 
     revalidatePath('/account')
