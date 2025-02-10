@@ -42,6 +42,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'signup',
+    label: 'Signup',
+    href: '/signup',
+    auth: false,
+  },
+  {
     key: 'tags',
     label: 'Tags',
     href: '/tags',
