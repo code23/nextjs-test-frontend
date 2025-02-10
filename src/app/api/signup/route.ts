@@ -46,18 +46,21 @@ export async function POST(request: Request) {
       if (response.status !== 200) {
         throw new Error(data.message || 'Login failed')
       }
-      data.scope = ''
+
       const session = await getSession()
+      const user = await signupResponse.data
+
+      data.scope = ''
       session.oauth = data
       session.isLoggedIn = true
-      const user = await sdk.users.get(session.oauth)
-      delete user.data.team
-      delete user.data.profile
-      delete user.data.role
-      session.user = user.data
+      session.user = await user
+      session.user.email = email
       await session.save()
+
+      return NextResponse.json(signupResponse, { status: 200 })
     }
-    return NextResponse.json(signupResponse, { status: 200 })
+
+    return NextResponse.json(signupResponse, { status: 500 })
   } catch (error) {
     console.error('Error during signup ', error)
     return NextResponse.json(
