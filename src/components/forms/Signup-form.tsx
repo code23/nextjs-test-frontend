@@ -1,8 +1,9 @@
 'use client'
+
 import { Button, Checkbox, Input } from '@heroui/react'
 import { useState } from 'react'
 
-export default function SignupFormPage() {
+export default function SignupForm() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
