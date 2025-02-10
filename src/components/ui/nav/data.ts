@@ -18,6 +18,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'attributes',
+    label: 'Attributes',
+    href: '/attributes',
+    auth: false,
+  },
+  {
     key: 'blog',
     label: 'Blog',
     href: '/blog',
