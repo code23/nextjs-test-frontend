@@ -7,7 +7,7 @@ const sdk = new MarkkoSDK(markkoConfig)
 export default async function CurrencyPage() {
   const session = await getSession()
   const oauth = session.oauth
-  const currencies = await sdk.currencies.list({}, oauth)
+  const currencies = await sdk.currencies.list({ is_enabled: 1 }, oauth)
   console.log('currency>>>>', currencies)
 
   return (
