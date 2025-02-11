@@ -36,6 +36,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'currencies',
+    label: 'Currencies',
+    href: '/currency',
+    auth: false,
+  },
+  {
     key: 'products',
     label: 'Products',
     href: '/products',
