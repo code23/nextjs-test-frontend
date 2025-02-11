@@ -8,7 +8,6 @@ export default async function CurrencyPage() {
   const session = await getSession()
   const oauth = session.oauth
   const currencies = await sdk.currencies.list({ is_enabled: 1 }, oauth)
-  console.log('currency>>>>', currencies)
 
   return (
     <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
