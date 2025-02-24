@@ -14,7 +14,7 @@ export default async function MessagesPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center py-24 px-8 sm:px-24 gap-8 font-[family-name:var(--font-geist-sans)]">
-      <h1 className="text-4xl font-bold">All Chanels</h1>
+      <h1 className="text-4xl font-bold">All Channels</h1>
       {session?.isLoggedIn ? (
         <div className="w-full grid sm:grid-cols-3 gap-4">
           {allchanels.data.map((chanel: any, index: number) => (

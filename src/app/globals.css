@@ -7,8 +7,34 @@
   --foreground: #ededed;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.accordion-item {
+  border-top: 1px solid #e5e7eb;
+}
+
+.accordion-item:last-child {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.accordion-item h2 {
+  margin-bottom: 0;
+}
+
+.accordion-item h2 > button span[data-slot="title"] {
+  color: black;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.accordion-item h2 > button span[data-slot="indicator"] {
+  color: black;
 }
