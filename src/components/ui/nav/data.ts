@@ -18,6 +18,12 @@ export const navItems = [
     auth: false,
   },
   {
+    key: 'attributes',
+    label: 'Attributes',
+    href: '/attributes',
+    auth: false,
+  },
+  {
     key: 'blog',
     label: 'Blog',
     href: '/blog',
@@ -27,6 +33,12 @@ export const navItems = [
     key: 'categories',
     label: 'Categories',
     href: '/categories',
+    auth: false,
+  },
+  {
+    key: 'currencies',
+    label: 'Currencies',
+    href: '/currency',
     auth: false,
   },
   {
@@ -45,6 +57,12 @@ export const navItems = [
     key: 'reviews',
     label: 'Reviews',
     href: '/reviews',
+    auth: false,
+  },
+  {
+    key: 'signup',
+    label: 'Signup',
+    href: '/signup',
     auth: false,
   },
   {
@@ -69,6 +87,12 @@ export const navItems = [
     key: 'messages',
     label: 'Messages',
     href: '/messages',
+    auth: true,
+  },
+  {
+    key: 'product',
+    label: 'Product',
+    href: '/product',
     auth: true,
   },
 ]
