@@ -84,6 +84,12 @@ export const navItems = [
     auth: true,
   },
   {
+    key: 'images',
+    label: 'Images',
+    href: '/images',
+    auth: true,
+  },
+  {
     key: 'messages',
     label: 'Messages',
     href: '/messages',
