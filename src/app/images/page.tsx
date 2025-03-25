@@ -11,6 +11,12 @@ export default function ImagesPage() {
 
   const handleSubmit = async () => {
     try {
+      if (!image) {
+        console.error('No image selected')
+        setIsSuccess(false)
+        return
+      }
+
       setIsLoading(true)
 
       const formData = new FormData()

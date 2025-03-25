@@ -8,11 +8,20 @@ import Vapor from "laravel-vapor"
 export async function POST(request: Request) {
   try {
     const formData = await request.formData()
-    const image = formData.get('image')
+    const imageFormData = formData.get('image')
 
     const session = await getSession()
     const oauth = session?.oauth
     const sdk = new MarkkoSDK(markkoConfig)
+
+    if (!imageFormData || !(imageFormData instanceof File)) {
+      return NextResponse.json(
+        { error: 'No image file provided or invalid file' },
+        { status: 400 }
+      )
+    }
+
+    const image = imageFormData
 
     Vapor.store(image, {
       bucket: awsConfig.s3Bucket,
@@ -31,7 +40,7 @@ export async function POST(request: Request) {
         type: image?.type || '',
       }
       
-      const res = await sdk.images.register(
+      await sdk.images.register(
       {
         uuid: response.uuid,
         key: response.key,
